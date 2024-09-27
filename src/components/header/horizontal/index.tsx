@@ -4,16 +4,16 @@ import { motion } from "framer-motion";
 
 const anim = {
   initial: {
-    opacity: 0,
+    opacity: 0
   },
   open: (delay: any) => ({
     opacity: 1,
-    transition: { duration: 0.3, delay: 0.02 * delay[0] }, // Slight delay for stagger effect
+    transition: { duration: 0.3, delay: 0.02 * delay[0] } // Slight delay for stagger effect
   }),
   closed: (delay: any) => ({
     opacity: 0,
-    transition: { duration: 0.3, delay: 0.02 * delay[1] }, // Slight delay for stagger effect
-  }),
+    transition: { duration: 0.3, delay: 0.02 * delay[1] } // Slight delay for stagger effect
+  })
 };
 
 export default function Index({ menuIsActive }: { menuIsActive: any }) {
@@ -33,7 +33,8 @@ export default function Index({ menuIsActive }: { menuIsActive: any }) {
   };
 
   const getBlocks = (indexOfColumn: any) => {
-    const { innerWidth, innerHeight } = window;
+    const innerWidth = window.innerWidth;
+    const innerHeight = window.innerHeight;
     const blockSize = innerWidth * 0.05; // Each block is 5% of the screen width
     const nbOfBlocks = Math.ceil(innerHeight / blockSize); // Calculate how many blocks fit vertically
     const shuffledIndexes = shuffle([...Array(nbOfBlocks)].map((_, i) => i));
@@ -46,7 +47,10 @@ export default function Index({ menuIsActive }: { menuIsActive: any }) {
           variants={anim}
           initial="initial"
           animate={menuIsActive ? "open" : "closed"}
-          custom={[indexOfColumn + randomIndex, 20 - indexOfColumn + randomIndex]}
+          custom={[
+            indexOfColumn + randomIndex,
+            20 - indexOfColumn + randomIndex
+          ]}
         />
       );
     });

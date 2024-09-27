@@ -9,7 +9,7 @@ const IndexHeader = () => {
     <div>
       <Header menuIsActive={menuIsActive} setMenuIsActive={setMenuIsActive} />
       {menuIsActive && (
-        <>
+        <>  
           <Menu menuIsActive={menuIsActive} />
         </>
       )}
