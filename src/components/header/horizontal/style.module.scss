@@ -1,0 +1,23 @@
+.pixelBackground {
+    display: flex; /* Create a flex container for columns */
+    height: 100vh; /* Full height of the viewport */
+    width: 100vw; /* Full width of the viewport */
+    position: fixed; /* Fixed position to cover the entire screen */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    z-index: 1; /* Layer on top of other elements */
+    pointer-events: none; /* Allow clicks to pass through */
+
+    .column {
+        width: 5vw; /* Each column takes up 5% of the viewport width */
+        height: 100%; /* Full height */
+        display: flex; /* Allow blocks to stack vertically */
+        flex-direction: column; /* Stack blocks vertically */
+
+        .block {
+            width: 100%; /* Full width of the column */
+            height: 5vw; /* Each block is 5% of the viewport width */
+            background-color: #ff6a00; /* Block color */
+        }
+    }
+}
