@@ -14,6 +14,10 @@ const SceneIntro = () => {
   const router = useRouter(); // Initialize useRouter for navigation
 
   useEffect(() => {
+
+
+
+
     const timeline = gsap.timeline({ repeat: 0, repeatDelay: 0.5 }); // No repeat, only run once
 
     // Sequential animation for the intro and each skill
@@ -31,7 +35,7 @@ const SceneIntro = () => {
         .fromTo(
           textRef1.current,
           { x: "-100vw", opacity: 0 },
-          { x: 0, opacity: 1, duration: 0.5, ease: "power1.out" }
+          { x: 0, opacity: 1, duration: 1.3, ease: "power1.out" }
         )
         .to(textRef1.current, { opacity: 0, duration: 0.3, delay: 0.3 })
         .fromTo(
