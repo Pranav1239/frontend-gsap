@@ -1,55 +1,28 @@
 import Image from 'next/image'
-import { Instagram, Linkedin, Github, Mail } from 'lucide-react'
+import { Instagram, Linkedin, Github, Mail, Code, Briefcase, GraduationCap, Award, Heart, Coffee, Music, Book } from 'lucide-react'
 
 export default function AboutPage() {
+  const boxes = [
+    { title: "About Me", content: "17-year-old full stack developer from Vizag, India", icon: <Heart className="w-8 h-8 mb-2" /> },
+    { title: "Skills", content: "React, Node.js, Python, TypeScript", icon: <Code className="w-8 h-8 mb-2" /> },
+    { title: "Experience", content: "1 year in the tech industry", icon: <Briefcase className="w-8 h-8 mb-2" /> },
+    { title: "Education", content: "Self-taught programmer", icon: <GraduationCap className="w-8 h-8 mb-2" /> },
+    { title: "Projects", content: "Portfolio, E-commerce site, Chat app", icon: <Code className="w-8 h-8 mb-2" /> },
+    { title: "Achievements", content: "Hackathon winner, Open source contributor", icon: <Award className="w-8 h-8 mb-2" /> },
+    { title: "Hobbies", content: "Coding, Reading, Music", icon: <Music className="w-8 h-8 mb-2" /> },
+    { title: "Contact", content: "pranavkumar@example.com", icon: <Mail className="w-8 h-8 mb-2" /> },
+  ]
+
   return (
-    <div className="bg-black min-h-screen text-white flex items-center justify-center p-4">
-      <div className="max-w-4xl w-full space-y-8">
-        <div className="flex flex-col md:flex-row items-center gap-8">
-          <Image
-            src="/placeholder.svg?height=300&width=300"
-            alt="Pranav Kumar"
-            width={300}
-            height={300}
-            className="rounded-full border-4 border-white"
-          />
-          <div className="space-y-4 text-center md:text-left">
-            <h1 className="text-4xl font-bold">Pranav Kumar</h1>
-            <p className="text-xl">
-              17-year-old full stack developer from Vizag, India
-            </p>
-            <p className="text-gray-400">
-              1 year of experience in the tech industry
-            </p>
-            <p className="text-gray-400">
-              Currently working at Techsolace
-            </p>
+    <div className="bg-black min-h-screen text-white p-4">
+      <div className="h-[calc(100vh-2rem)] grid grid-cols-4 gap-4 auto-rows-fr">
+        {boxes.map((box, index) => (
+          <div key={index} className="bg-gray-800 p-4 rounded-lg flex flex-col justify-center items-center text-center">
+            {box.icon}
+            <h2 className="text-xl font-bold mb-2">{box.title}</h2>
+            <p>{box.content}</p>
           </div>
-        </div>
-        
-        <div className="flex justify-center md:justify-start space-x-4">
-          <button variant="outline">Skills</button>
-          <button variant="outline">Experience</button>
-        </div>
-        
-        <div className="flex justify-center md:justify-start space-x-6">
-          <a href="#" className="hover:text-gray-400 transition-colors">
-            <Instagram size={24} />
-            <span className="sr-only">Instagram</span>
-          </a>
-          <a href="#" className="hover:text-gray-400 transition-colors">
-            <Linkedin size={24} />
-            <span className="sr-only">LinkedIn</span>
-          </a>
-          <a href="#" className="hover:text-gray-400 transition-colors">
-            <Github size={24} />
-            <span className="sr-only">GitHub</span>
-          </a>
-          <a href="#" className="hover:text-gray-400 transition-colors">
-            <Mail size={24} />
-            <span className="sr-only">Email</span>
-          </a>
-        </div>
+        ))}
       </div>
     </div>
   )
